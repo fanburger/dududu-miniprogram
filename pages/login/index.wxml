@@ -1,0 +1,14 @@
+<view class="login-con">
+  <image src="/images/login-bg.svg" mode="widthFix" style="width: 750rpx;" />
+  <view class="title primary-color">
+    DuDuDu
+  </view>
+  <view class="slogan">
+    阅读不孤单，与读读渡一起分享每个文字的感动。
+  </view>
+  <view class="signature">
+    --读读渡，让阅读更有意义
+  </view>
+  <van-button bind:click="login" round color="#E6AE17" custom-class="login-btn">一键登录</van-button>
+  <van-toast id="van-toast" />
+</view>

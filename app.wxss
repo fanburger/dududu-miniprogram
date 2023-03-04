@@ -1,0 +1,19 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.primary-color {
+  color: #e6ae17;
+}
+
+.secondary-color {
+  color: #232323;
+}
+
+page {
+  background-color: #fafafa;
+}
