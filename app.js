@@ -5,9 +5,11 @@ App({
   quickLogin() {
     wx.login({
       success: (res) => {
+        console.log(res);
         api.login({
           code: res.code
         }).then(res => {
+          console.log(res);
           let {
             token
           } = res.data.data

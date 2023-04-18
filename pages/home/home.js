@@ -1,4 +1,4 @@
-// pages/index/index.js
+// pages/home/home.js
 Page({
 
   /**
@@ -7,24 +7,12 @@ Page({
   data: {
 
   },
-  verifyMe() {
-    try {
-      let app = getApp()
-      app.verify()
-      return true
-    } catch (err) {
-      return false
-    }
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    if (this.verifyMe()) {
-      wx.switchTab({
-        url: '/pages/home/home'
-      })
-    }
+
   },
 
   /**

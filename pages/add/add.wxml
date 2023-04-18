@@ -1,0 +1,53 @@
+<view class="container mt-1v">
+
+  <!-- title -->
+  <view class="bb mt-1v" style="width: 97%;">
+    <van-cell-group inset>
+      <van-field value="{{ value }}" label="标题：" placeholder="写一个标题吧" border="{{ false }}" bind:change="onChange" />
+    </van-cell-group>
+  </view>
+
+  <!-- sentence -->
+  <view class="w-100 pand-20 flex justify-center bb" style="height: 200rpx;">
+    <textarea class="radius-24 gray-bg bb pand-20" style="background-color: white;width: 93%;height: 100%;" value="" placeholder="这一刻的想法..." />
+  </view>
+
+  <!-- book infomation -->
+  <view class="bb" style="width: 97%;">
+    <van-cell-group inset>
+      <van-field value="{{ value }}" label="书名：" placeholder="这里输入书名" border="{{ false }}" bind:change="onChange" />
+      <van-field value="{{ value }}" label="作者：" placeholder="书的作者是谁呢？" border="{{ false }}" bind:change="onChange" />
+      <van-field value="{{ value }}" label="分类：" placeholder="书的分类" border="{{ false }}" bind:change="onChange" />
+    </van-cell-group>
+  </view>
+
+  <!-- introduce -->
+  <view class="w-100 pand-20 flex justify-center bb" style="height: 200rpx;">
+    <textarea class="radius-24 gray-bg bb pand-20" style="background-color: white;width: 93%;height: 100%;" value="" placeholder="关于这本书的简介..." />
+  </view>
+
+  <!-- rate -->
+  <view class="bb" style="width: 97%;">
+    <van-cell-group inset>
+      <van-cell value="5.0" icon="guide-o">
+        <view slot="title">
+          <view class="van-cell-text">推荐指数:</view>
+          <van-rate size="{{ 20 }}" count="{{ 5 }}" color="#e6ae17"></van-rate>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </view>
+
+  <!-- upload cover -->
+  <view class="bb" style="width: 97%;">
+      <van-uploader file-list="{{ fileList }}" deletable="{{ true }}" />
+  </view>
+
+
+  <!-- post button -->
+  <view class="justify-center w-70 mt-3v">
+    <van-button block round color="#232323"><text style="color: #e6ae17;">发 表</text></van-button>
+  </view>
+
+
+</view>
