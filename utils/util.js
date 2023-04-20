@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+const getUserIDFromStorage = ()=>{
+  return wx.getStorageSync('userID')
+}
+
 module.exports = {
-  formatTime
+  formatTime,
+  getUserIDFromStorage
 }

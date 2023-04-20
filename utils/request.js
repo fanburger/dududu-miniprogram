@@ -8,8 +8,7 @@ const request = function (url, options) {
       method: options.method,
       data: options.method == "GET" ? options.data : JSON.stringify(options.data),
       header: {
-        'x-token': app.globalData.token,
-        'user_id': app.globalData.userID
+        'x-token': app.globalData.token
       },
       success: (res) => {
         if (res.data.code == 500) {
