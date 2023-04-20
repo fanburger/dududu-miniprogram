@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#EDC34E",
+  "navigationBarTitleText": "我的"
 }

@@ -16,7 +16,11 @@
     "van-uploader": "@vant/weapp/uploader/index",
     "van-rate": "@vant/weapp/rate/index",
     "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index"
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-grid": "@vant/weapp/grid/index",
+  "van-grid-item": "@vant/weapp/grid-item/index"
   },
   "window": {
     "backgroundTextStyle": "light",

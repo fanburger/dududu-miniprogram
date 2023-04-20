@@ -20,7 +20,7 @@
   width: 100%;
 }
 
-.w-90{
+.w-90 {
   width: 90%;
 }
 
@@ -28,7 +28,7 @@
   width: 85%;
 }
 
-.w-70{
+.w-70 {
   width: 70%;
 }
 
@@ -37,6 +37,7 @@
 }
 
 .flex-col {
+  display: flex;
   flex-direction: column;
 }
 
@@ -52,6 +53,13 @@
   justify-content: flex-end;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
 .primary-color {
   color: var(--parimary-color);
 }
@@ -59,7 +67,6 @@
 .secondary-color {
   color: var(--secondary-color);
 }
-
 
 .pand-right-12v {
   padding-right: 12vw;
@@ -69,7 +76,6 @@
   padding: 20rpx;
 }
 
-
 .pand-10 {
   padding: 10rpx;
 }
@@ -78,7 +84,7 @@
   margin-top: 3vh;
 }
 
-.mt-1v{
+.mt-1v {
   margin-top: 1vh;
 }
 
@@ -86,7 +92,15 @@
   border-radius: 24rpx;
 }
 
-.card{
+.gap-24 {
+  gap: 24rpx;
+}
+
+.gap-50 {
+  gap: 50rpx;
+}
+
+.card {
   border-radius: 24rpx;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

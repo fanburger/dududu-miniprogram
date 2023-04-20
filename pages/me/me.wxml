@@ -1,2 +1,106 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view class="bg-block">
+</view>
+
+<view class="container w-100 relative">
+  <view class="absolute personal-card">
+    <view class="avatar">
+      <image src="../../images/default_avatar.jpg" mode="widthFix" class="avatar-img" />
+      <text class="username">哈哈哈</text>
+    </view>
+    <view class="some-data">
+      <van-grid column-num="3" border="{{false}}">
+        <van-grid-item use-slot>
+          <view class="v-data">
+            <view>
+              {{summary.like_count}}
+            </view>
+            <view class="data-info-text">
+              喜欢
+            </view>
+          </view>
+        </van-grid-item>
+        <van-grid-item use-slot>
+          <view class="v-data">
+            <view>
+              {{summary.follow_from}}
+            </view>
+            <view class="data-info-text">
+              粉丝
+            </view>
+          </view>
+        </van-grid-item>
+        <van-grid-item use-slot>
+          <view class="v-data">
+            <view>
+              {{summary.follow_to}}
+            </view>
+            <view class="data-info-text">
+              关注
+            </view>
+          </view>
+        </van-grid-item>
+      </van-grid>
+    </view>
+  </view>
+  <view class="absolute content-block w-90">
+    <van-tabs active="mybook" title-active-color="#e6ae17" color="#e6ae17" swipeable animated>
+      <van-tab title="我的图书" name="mybook">
+        <view class="container w-100 mt-3v book-con gap-50">
+          <block wx:for="{{mybooks}}" wx:key="_id">
+            <view class="flex-col pand-20 gap-24 book-card bb w-90 items-center">
+              <view class="book-card-text">
+                {{item.sentence}}
+              </view>
+              <image src="{{item.cover}}" mode="aspectFill" class="book-card-image" />
+              <view class="flex book-card-bottom w-90">
+                <view style="color: #BDC4CE;font-size: small;">
+                  12分钟前
+                </view>
+                <view class="flex gap-24">
+                  <view>
+                    <van-icon name="like-o" size="20" color="#8C9198" />
+                    <text style="color: #8C9198;font-size:small">26</text>
+                  </view>
+                  <view>
+                    <van-icon name="smile-comment-o" size="20" color="#8C9198" />
+                    <text style="color: #8C9198;font-size:small">26</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+
+        </view>
+      </van-tab>
+
+      <van-tab title="我的评论" name="mycomment">
+        <view class="container w-100 mt-3v book-con gap-50">
+          <block wx:for="{{mycomments}}" wx:key="_id">
+            <view class="flex-col pand-20 gap-24 book-card bb w-90 items-center">
+              <view class="book-card-text">
+                {{item.sentence}}
+              </view>
+              <image src="{{item.cover}}" mode="aspectFill" class="book-card-image" />
+              <view class="flex book-card-bottom w-90">
+                <view style="color: #BDC4CE;font-size: small;">
+                  12分钟前
+                </view>
+                <view class="flex gap-24">
+                  <view>
+                    <van-icon name="like-o" size="20" color="#8C9198" />
+                    <text style="color: #8C9198;font-size:small">26</text>
+                  </view>
+                  <view>
+                    <van-icon name="smile-comment-o" size="20" color="#8C9198" />
+                    <text style="color: #8C9198;font-size:small">26</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>
