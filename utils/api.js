@@ -30,10 +30,18 @@ function getUserSummary() {
   return request.get('/users/summary', data)
 }
 
+function getMe() {
+  const userID = getUserIDFromStorage()
+  const data = {}
+  data['user_id'] = userID
+  return request.get('/users/me', data)
+}
+
 module.exports = {
   login,
   verify,
   creatBook,
   getBookListCreatedByUser,
-  getUserSummary
+  getUserSummary,
+  getMe
 }
