@@ -1,13 +1,60 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/home/home",
+    "pages/me/me",
+    "pages/like/like",
+    "pages/add/add",
+    "pages/star/star"
   ],
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-circle": "@vant/weapp/circle/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-rate": "@vant/weapp/rate/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-grid": "@vant/weapp/grid/index",
+  "van-grid-item": "@vant/weapp/grid-item/index"
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "读读渡",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+        "pagePath": "pages/home/home",
+        "iconPath": "/images/tabbar/home.png",
+        "selectedIconPath": "/images/tabbar/home-selected.png"
+      },
+      {
+        "pagePath": "pages/like/like",
+        "iconPath": "/images/tabbar/heart.png",
+        "selectedIconPath": "/images/tabbar/heart-selected.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "iconPath": "/images/tabbar/add.png",
+        "selectedIconPath": "/images/tabbar/add-selected.png"
+      },
+      {
+        "pagePath": "pages/star/star",
+        "iconPath": "/images/tabbar/star.png",
+        "selectedIconPath": "/images/tabbar/star-selected.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "/images/tabbar/user.png",
+        "selectedIconPath": "/images/tabbar/user-selected.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

@@ -1,4 +1,14 @@
 /**app.wxss**/
+
+:root {
+  --parimary-color: #e6ae17;
+  --secondary-color: #232323;
+}
+
+.bb {
+  box-sizing: border-box;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -6,14 +16,95 @@
   align-items: center;
 }
 
+.w-100 {
+  width: 100%;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.w-85 {
+  width: 85%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
 .primary-color {
-  color: #e6ae17;
+  color: var(--parimary-color);
 }
 
 .secondary-color {
-  color: #232323;
+  color: var(--secondary-color);
+}
+
+.pand-right-12v {
+  padding-right: 12vw;
+}
+
+.pand-20 {
+  padding: 20rpx;
+}
+
+.pand-10 {
+  padding: 10rpx;
+}
+
+.mt-3v {
+  margin-top: 3vh;
+}
+
+.mt-1v {
+  margin-top: 1vh;
+}
+
+.radius-24 {
+  border-radius: 24rpx;
+}
+
+.gap-24 {
+  gap: 24rpx;
+}
+
+.gap-50 {
+  gap: 50rpx;
+}
+
+.card {
+  border-radius: 24rpx;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 page {
-  background-color: #fafafa;
+  background-color: #f5f5f5;
 }

@@ -1,30 +1,51 @@
-// pages/index/index.js
+// pages/me/me.js
+const api = require('../../utils/api')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    summary: {
+      "like_count": 0,
+      "follow_to": 0,
+      "follow_from": 0
+    },
+    mybooks: [],
+    mycomments: []
   },
-  verifyMe() {
-    try {
-      let app = getApp()
-      app.verify()
-      return true
-    } catch (err) {
-      return false
-    }
+
+  loadMybook() {
+    wx.showLoading({
+      title: '加载中'
+    })
+    api.getBookListCreatedByUser({
+      page: 1,
+      size: 10
+    }).then(res => {
+      let {
+        list
+      } = res.data.data
+      this.setData({
+        mybooks: list
+      })
+      wx.hideLoading()
+    })
+  },
+  loadUserSummary() {
+    api.getUserSummary().then(res => {
+      this.setData({
+        summary: res.data.data
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    if (this.verifyMe()) {
-      wx.switchTab({
-        url: '/pages/home/home'
-      })
-    }
+    this.loadMybook()
+    this.loadUserSummary()
   },
 
   /**

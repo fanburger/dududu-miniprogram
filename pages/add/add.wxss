@@ -1,0 +1,8 @@
+/* pages/add/add.wxss */
+.uploader {
+  width: 88%;
+  background-color: white;
+  padding: 12rpx;
+  margin-top: 1vh;
+  border-radius: 12rpx;
+}
