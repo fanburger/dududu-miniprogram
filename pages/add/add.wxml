@@ -3,30 +3,18 @@
   <block wx:if="{{ showContent === 'sentence' }}">
     <!-- post button -->
     <view class="flex flex-end w-85 mt-3v">
-      <van-button type="small" round color="#232323" bind:click="createBook"><text style="color: #e6ae17;">发 表</text></van-button>
+      <van-button type="small" round color="#232323" bind:click="createArticle"><text style="color: #e6ae17;">发 表</text></van-button>
     </view>
 
 
     <!-- sentence -->
     <view class="w-100 pand-20 flex justify-center bb" style="height: 400rpx;">
-      <textarea class="radius-24 gray-bg bb pand-20" style="background-color: white;width: 93%;height: 100%;" model:value="{{sentence}}" placeholder="这一刻的想法..." />
-    </view>
-
-    <!-- rate -->
-    <view class="bb" style="width: 97%;">
-      <van-cell-group inset>
-        <van-cell value="{{rating + '.0'}}" icon="guide-o">
-          <view slot="title">
-            <view class="van-cell-text">推荐指数:</view>
-            <van-rate size="{{ 20 }}" count="{{ 5 }}" value="{{rating}}" color="#e6ae17" bind:change="changeRate"></van-rate>
-          </view>
-        </van-cell>
-      </van-cell-group>
+      <textarea class="radius-24 gray-bg bb pand-20" style="background-color: white;width: 93%;height: 100%;" model:value="{{detail}}" placeholder="这一刻的想法..." />
     </view>
 
     <!-- upload cover -->
     <view class="bb uploader">
-      <van-uploader upload-text="上传封面" file-list="{{ fileList }}" max-count="1" deletable="{{ true }}" bind:after-read="uploadToCloud" />
+      <van-uploader upload-text="photo" file-list="{{ fileList }}" max-count="3" deletable="{{ true }}" bind:after-read="uploadToCloud" />
     </view>
 
     <view class="bb mt-1v" style="width: 97%;">
@@ -50,9 +38,31 @@
       </van-cell-group>
     </view>
 
+    <!-- rate -->
+    <view class="bb mt-1v" style="width: 97%;">
+      <van-cell-group inset>
+        <van-cell value="{{rating + '.0'}}" icon="guide-o">
+          <view slot="title">
+            <view class="van-cell-text">推荐指数:</view>
+            <van-rate size="{{ 20 }}" count="{{ 5 }}" value="{{rating}}" color="#e6ae17" bind:change="changeRate"></van-rate>
+          </view>
+        </van-cell>
+      </van-cell-group>
+    </view>
+
+    <!-- sentence -->
+    <view class="w-100 pand-20 flex justify-center bb" style="height: 180rpx;">
+      <textarea class="radius-24 gray-bg bb pand-20" style="background-color: white;width: 93%;height: 100%;" model:value="{{sentence}}" placeholder="句子摘抄" />
+    </view>
+
     <!-- introduce -->
-    <view class="w-100 pand-20 flex justify-center bb" style="height: 400rpx;">
+    <view class="w-100 pand-20 flex justify-center bb" style="height: 250rpx;">
       <textarea class="radius-24 gray-bg bb pand-20" style="background-color: white;width: 93%;height: 100%;" model:value="{{introduce}}" placeholder="关于这本书的简介..." />
+    </view>
+
+    <!-- upload cover -->
+    <view class="bb uploader">
+      <van-uploader upload-text="上传封面" file-list="{{ coverImages }}" max-count="1" deletable="{{ true }}" bind:after-read="uploadCoverToCloud" />
     </view>
 
     <!-- back button -->

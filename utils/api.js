@@ -41,10 +41,16 @@ function getMe() {
   return request.get('/users/me', data)
 }
 
+function createArticle(data) {
+  const userID = getUserIDFromStorage()
+  return request.post(`/comment/create/article?user_id=${userID}`, data)
+}
+
 module.exports = {
   login,
   verify,
   creatBook,
+  createArticle,
   getBookDetail,
   getBookListCreatedByUser,
   getUserSummary,
