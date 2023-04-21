@@ -23,6 +23,10 @@ function getBookListCreatedByUser(data) {
   return request.get('/book/list/user', data)
 }
 
+function getBookDetail(data) {
+  return request.get('/book/detail', data)
+}
+
 function getUserSummary() {
   const userID = getUserIDFromStorage()
   const data = {}
@@ -41,6 +45,7 @@ module.exports = {
   login,
   verify,
   creatBook,
+  getBookDetail,
   getBookListCreatedByUser,
   getUserSummary,
   getMe

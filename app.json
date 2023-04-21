@@ -6,7 +6,8 @@
     "pages/me/me",
     "pages/like/like",
     "pages/add/add",
-    "pages/star/star"
+    "pages/star/star",
+    "pages/book-info/bookinfo"
   ],
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
@@ -20,7 +21,8 @@
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-grid": "@vant/weapp/grid/index",
-  "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-divider": "@vant/weapp/divider/index"
   },
   "window": {
     "backgroundTextStyle": "light",
@@ -29,7 +31,8 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/home/home",
         "iconPath": "/images/tabbar/home.png",
         "selectedIconPath": "/images/tabbar/home-selected.png"
