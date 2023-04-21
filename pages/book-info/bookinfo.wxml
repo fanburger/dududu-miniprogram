@@ -1,0 +1,28 @@
+<view class="container mt-3v">
+  <view class="flex items-center gap-24 w-90">
+    <!-- info left -->
+    <view class="flex-col gap-24 info-left">
+      <view class="cover bb ml-auto">
+        <image src="{{ bookinfo.cover }}" mode="aspectFill" style="width: 364rpx;height: 100%;" />
+      </view>
+      <view class="rate ml-auto">
+        <van-rate readonly value="{{ bookinfo.rating }}" color="#EDC34E" count="{{ 5 }}"></van-rate>
+      </view>
+      <view class="write-comment">
+        <van-button round block type="small" color="black"><text style="color: #EDC34E;">写书评</text></van-button>
+      </view>
+    </view>
+    <!-- info right -->
+    <view class="flex-col gap-24 info-right">
+      <view class="book-name mr-auto">
+        <text>{{ bookinfo.title }}</text>
+      </view>
+      <view class="intro mr-auto">
+        {{ bookinfo.introduce }}
+      </view>
+    </view>
+  </view>
+  <view class="w-90 mt-3v">
+    <van-divider />
+  </view>
+</view>
