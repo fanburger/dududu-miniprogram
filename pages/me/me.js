@@ -1,6 +1,6 @@
 // pages/me/me.js
 const api = require('../../utils/api')
-
+const {timeFormat} = require('../../utils/util')
 Page({
 
   /**
@@ -27,6 +27,9 @@ Page({
       let {
         list
       } = res.data.data
+      list.forEach(book=>{
+        book['fctime'] = timeFormat(book.create_time)
+      })
       this.setData({
         mybooks: list
       })

@@ -54,7 +54,7 @@
               <image src="{{item.cover}}" mode="aspectFill" class="book-card-image" />
               <view class="flex book-card-bottom w-90">
                 <view style="color: #BDC4CE;font-size: small;">
-                  12分钟前
+                  {{item.fctime}}
                 </view>
                 <view class="flex gap-24">
                   <view>
