@@ -1,18 +1,40 @@
 // pages/like/like.js
+
+const api = require('../../utils/api')
+const {
+  timeFormat
+} = require('../../utils/util')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    mybooks: []
+  },
+  async loadBookUsers() {
+    const data = {
+      page: 1,
+      size: 100
+    }
+    const res = await api.getBookUsers(data)
+    const {
+      list
+    } = res.data.data
+    const books = await api.bookBatchList(list)
+    books.data.data.list.forEach(book => {
+      book['fctime'] = timeFormat(book.create_time)
+    })
+    this.setData({
+      mybooks: books.data.data.list
+    })
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.loadBookUsers()
   },
 
   /**

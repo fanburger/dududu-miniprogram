@@ -1,1 +1,32 @@
-/* pages/like/like.wxss */
+.book-list-title{
+  padding: 18rpx;
+  background-color: black;
+  color: #EDC34E;
+  border-radius: 100rpx;
+}
+
+.content-block{
+  top: 300rpx;
+}
+
+.book-con{
+  padding-bottom: 4vh;
+}
+
+.book-card{
+  height: 100%;
+  box-shadow: 0 4rpx 22rpx #E6AE17;
+}
+
+.book-card-text{
+  font-size: small;
+}
+
+.book-card-image{
+  height: 320rpx;
+  width: 95%;
+}
+
+.book-card-bottom{
+  justify-content: space-between;
+}
