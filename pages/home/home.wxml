@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="w-90">
+    <swiper class="swiper-con" bindchange="onChange" current="{{curIndex}}">
+      <swiper-item class="flex items-center justify-center" wx:for="{{5}}" wx:key="item">
+        <view class="item-con">
+          <view style="position: relative;">
+            <image src="{{books[item].cover}}" mode="aspectFill" style="width: 100%;height: 630rpx;"/>
+            <view class="book-name">
+              {{books[item].title}}
+            </view>
+          </view>
+          <view style="height: 100%;position: relative;padding-left: 12rpx;">
+            <view>
+              {{books[item].sentence}}
+            </view>
+            <view class="user" bindtap="gotoUserInfo" data-user-id="{{users[item].user_id}}">
+              <text>{{users[item].username}}</text>
+              <image src="{{users[item].avatar}}" mode="widthFix" style="width: 64rpx;"/>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item class="flex items-center justify-center">
+        <view class="load-more">
+          加载更多?
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="circle-con" bindtap="toggleLike">
+    <van-circle value="{{ value }}" layer-color="#eeeeee" color="#e6ae17" size="60">
+      <van-icon wx:if="{{ curIndex === 5 }}" name="replay" size="30" color="#e6ae17"></van-icon>
+      <van-icon wx:elif="{{ !likes[curIndex] }}" name="like-o" size="30" color="gray"></van-icon>
+      <van-icon wx:else="{{ likes[curIndex] }}" name="like" size="30" color="#e6ae17"></van-icon>
+    </van-circle>
+  </view>
+</view>

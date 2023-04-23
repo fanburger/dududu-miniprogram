@@ -1,1 +1,44 @@
 /* pages/home/home.wxss */
+
+.swiper-con {
+  height: 80vh;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.item-con {
+  margin: 20rpx;
+  box-shadow: 1rpx 3rpx 15rpx 0rpx #edc34e;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.book-name {
+  border-top-left-radius: 24rpx;
+  height: 40rpx;
+  padding: 12rpx;
+  background-color: #edc34e;
+  position: absolute;
+  bottom: 9rpx;
+  right: 0rpx;
+  font-weight: bold;
+  color: white;
+}
+
+.user {
+  position: absolute;
+  bottom: 8rpx;
+  right: 16rpx;
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.load-more{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
