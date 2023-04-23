@@ -16,8 +16,11 @@ App({
           if (token) {
             wx.setStorageSync('token', token)
             this.globalData.token = token
+            this.verify()
             Toast.success('登录成功')
-            wx.navigateBack()
+            wx.switchTab({
+              url: '/pages/home/home',
+            })
           } else {
             Toast.fail('登录失败')
           }
