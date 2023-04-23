@@ -4,8 +4,8 @@
 <view class="container w-100 relative">
   <view class="absolute personal-card">
     <view class="avatar">
-      <image src="../../images/default_avatar.jpg" mode="widthFix" class="avatar-img" />
-      <text class="username">哈哈哈</text>
+      <image src="{{me.avatar}}" mode="widthFix" class="avatar-img" />
+      <text class="username">{{me.username}}</text>
     </view>
     <view class="some-data">
       <van-grid column-num="3" border="{{false}}">
@@ -69,7 +69,6 @@
               </view>
             </view>
           </block>
-
         </view>
       </van-tab>
 

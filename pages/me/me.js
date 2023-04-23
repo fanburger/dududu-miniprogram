@@ -1,6 +1,9 @@
 // pages/me/me.js
 const api = require('../../utils/api')
-const {timeFormat} = require('../../utils/util')
+const {avatars} = require('../../config')
+const {
+  timeFormat
+} = require('../../utils/util')
 Page({
 
   /**
@@ -12,6 +15,7 @@ Page({
       "follow_to": 0,
       "follow_from": 0
     },
+    me: {},
     mybooks: [],
     mycomments: []
   },
@@ -27,7 +31,7 @@ Page({
       let {
         list
       } = res.data.data
-      list.forEach(book=>{
+      list.forEach(book => {
         book['fctime'] = timeFormat(book.create_time)
       })
       this.setData({
@@ -43,12 +47,22 @@ Page({
       })
     })
   },
+  async loadMe(){
+    api.getMe().then(res=>{
+      let {data} = res.data
+      data.avatar = `${avatars}/${data.avatar}.png`
+      this.setData({
+        me: res.data.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     this.loadMybook()
     this.loadUserSummary()
+    this.loadMe()
   },
 
   /**
