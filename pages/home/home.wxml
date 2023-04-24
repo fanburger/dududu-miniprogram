@@ -1,7 +1,7 @@
 <view class="container">
   <view class="w-90">
     <swiper class="swiper-con" bindchange="onChange" current="{{curIndex}}">
-      <swiper-item class="flex items-center justify-center" wx:for="{{5}}" wx:key="item">
+      <swiper-item class="flex items-center justify-center" wx:for="{{5}}" wx:key="item" bindtap="gotoBookDetail">
         <view class="item-con">
           <view style="position: relative;">
             <image src="{{books[item].cover}}" mode="aspectFill" style="width: 100%;height: 630rpx;"/>
@@ -13,7 +13,7 @@
             <view>
               {{books[item].sentence}}
             </view>
-            <view class="user" bindtap="gotoUserInfo" data-user-id="{{users[item].user_id}}">
+            <view class="user" data-user-id="{{users[item].user_id}}" catchtap="gotoUserInfo">
               <text>{{users[item].username}}</text>
               <image src="{{users[item].avatar}}" mode="widthFix" style="width: 64rpx;"/>
             </view>

@@ -127,7 +127,15 @@ Page({
   },
   gotoUserInfo(e){
     const {userId} = e.currentTarget.dataset
+    console.log(e);
     // mark: 添加跳转到用户信息的页面
+  },
+  gotoBookDetail(e){
+    const {books, curIndex} = this.data
+    const book_id = books[curIndex]._id
+    wx.navigateTo({
+      url: '/pages/book-info/bookinfo?book_id='+book_id,
+    })
   },
   /**
    * 生命周期函数--监听页面加载
