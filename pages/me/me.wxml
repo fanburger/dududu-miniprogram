@@ -46,24 +46,20 @@
     <van-tabs active="mybook" title-active-color="#e6ae17" color="#e6ae17" swipeable animated>
       <van-tab title="我的图书" name="mybook">
         <view class="container w-100 mt-3v book-con gap-50">
-          <block wx:for="{{mybooks}}" wx:key="_id">
-            <view class="flex-col pand-20 gap-24 book-card bb w-90 items-center">
+          <block wx:for="{{mybooks.length}}" wx:key="_id">
+            <view class="flex-col pand-20 gap-24 book-card bb w-90 items-center" data-book-id="{{mybooks[item]._id}}" bindtap="gotoBookDetail">
               <view class="book-card-text">
-                {{item.sentence}}
+                {{mybooks[item].sentence}}
               </view>
-              <image src="{{item.cover}}" mode="aspectFill" class="book-card-image" />
+              <image src="{{mybooks[item].cover}}" mode="aspectFill" class="book-card-image" />
               <view class="flex book-card-bottom w-90">
                 <view style="color: #BDC4CE;font-size: small;">
-                  {{item.fctime}}
+                  {{mybooks[item].fctime}}
                 </view>
                 <view class="flex gap-24">
                   <view>
                     <van-icon name="like-o" size="20" color="#8C9198" />
-                    <text style="color: #8C9198;font-size:small">26</text>
-                  </view>
-                  <view>
-                    <van-icon name="smile-comment-o" size="20" color="#8C9198" />
-                    <text style="color: #8C9198;font-size:small">26</text>
+                    <text style="color: #8C9198;font-size:small">{{likesCount[item]}}</text>
                   </view>
                 </view>
               </view>
@@ -74,15 +70,15 @@
 
       <van-tab title="我的评论" name="mycomment">
         <view class="container w-100 mt-3v book-con gap-50">
-          <block wx:for="{{mycomments}}" wx:key="_id">
+          <block wx:for="{{myArticles}}" wx:key="_id">
             <view class="flex-col pand-20 gap-24 book-card bb w-90 items-center">
               <view class="book-card-text">
-                {{item.sentence}}
+                {{item.detail}}
               </view>
-              <image src="{{item.cover}}" mode="aspectFill" class="book-card-image" />
+              <image src="{{item.images[0]}}" mode="aspectFill" class="book-card-image" />
               <view class="flex book-card-bottom w-90">
                 <view style="color: #BDC4CE;font-size: small;">
-                  12分钟前
+                  {{item.fctime}}
                 </view>
                 <view class="flex gap-24">
                   <view>

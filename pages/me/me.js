@@ -1,8 +1,11 @@
 // pages/me/me.js
 const api = require('../../utils/api')
-const {avatars} = require('../../config')
 const {
-  timeFormat
+  avatars
+} = require('../../config')
+const {
+  timeFormat,
+  getUserIDFromStorage
 } = require('../../utils/util')
 Page({
 
@@ -17,9 +20,18 @@ Page({
     },
     me: {},
     mybooks: [],
-    mycomments: []
+    likesCount: [],
+    myArticles: []
   },
-
+  async judgeLike(bookIDs) {
+    let res = await api.bookJudge(bookIDs)
+    const likes = res.data.data.list.map(j => {
+      return j.count
+    })
+    this.setData({
+      likesCount: likes
+    })
+  },
   loadMybook() {
     wx.showLoading({
       title: '加载中'
@@ -31,6 +43,10 @@ Page({
       let {
         list
       } = res.data.data
+      const bookIDs = list.map(book => {
+        return book._id
+      })
+      this.judgeLike(bookIDs)
       list.forEach(book => {
         book['fctime'] = timeFormat(book.create_time)
       })
@@ -47,13 +63,42 @@ Page({
       })
     })
   },
-  async loadMe(){
-    api.getMe().then(res=>{
-      let {data} = res.data
+  async loadMe() {
+    api.getMe().then(res => {
+      let {
+        data
+      } = res.data
       data.avatar = `${avatars}/${data.avatar}.png`
       this.setData({
         me: res.data.data
       })
+    })
+  },
+  gotoBookDetail(e) {
+    console.log(e);
+    const {
+      bookId
+    } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: '/pages/book-info/bookinfo?book_id=' + bookId,
+    })
+  },
+  async loadUserArticles() {
+    const user_id = getUserIDFromStorage()
+
+    const data = {
+      page: 1,
+      size: 5
+    }
+    let res = await api.getUserArticles(user_id, data)
+    let {
+      list
+    } = res.data.data
+    list.forEach(a=>{
+      a['fctime'] = `${timeFormat(a.create_time)}`
+    })
+    this.setData({
+      myArticles: list
     })
   },
   /**
@@ -63,6 +108,7 @@ Page({
     this.loadMybook()
     this.loadUserSummary()
     this.loadMe()
+    this.loadUserArticles()
   },
 
   /**
