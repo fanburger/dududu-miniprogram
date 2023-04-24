@@ -14,8 +14,11 @@ Page({
     category: '',
     cover: '',
     rating: 5,
+    book_id: '',
+    book_title: '',
+    detail:'',
     fileList: [],
-    images:[],
+    images: [],
     coverImages: []
   },
   uploadCoverToCloud(event) {
