@@ -1,0 +1,31 @@
+<view class="container mt-1v">
+
+  <block wx:if="{{ showContent === 'sentence' }}">
+    <!-- post button -->
+    <view class="flex flex-end w-85 mt-3v">
+      <van-button type="small" round color="#232323" bind:click="createArticle"><text style="color: #e6ae17;">发 表</text></van-button>
+    </view>
+
+
+    <!-- sentence -->
+    <view class="w-100 pand-20 flex justify-center bb" style="height: 400rpx;">
+      <textarea class="radius-24 gray-bg bb pand-20" style="background-color: white;width: 93%;height: 100%;" model:value="{{detail}}" placeholder="这一刻的想法..." />
+    </view>
+
+    <!-- upload cover -->
+    <view class="bb uploader">
+      <van-uploader upload-text="photo" file-list="{{ fileList }}" max-count="3" deletable="{{ true }}" bind:after-read="uploadToCloud" />
+    </view>
+
+    <view class="bb mt-1v" style="width: 97%;">
+      <van-cell-group inset>
+        <van-cell value="{{title}}" is-link>
+          <view slot="title">
+            <van-button round center type="small" color="#232323"><text style="color: #e6ae17;">关联图书</text></van-button>
+          </view>
+        </van-cell>
+      </van-cell-group>
+    </view>
+  </block>
+
+</view>
