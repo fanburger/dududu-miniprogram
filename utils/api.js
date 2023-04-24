@@ -60,16 +60,16 @@ function getMe() {
   return request.get('/users/me', data)
 }
 
+function getUserArticles(user_id, data) {
+  return request.get('/comment/list/artical/user?user_id='+user_id,data)
+}
+
 function createArticle(data) {
   const userID = getUserIDFromStorage()
   return request.post(`/comment/create/article?user_id=${userID}`, data)
 }
 
-function getCommentListArticle() {
-  const data = {
-    page: 1,
-    size: 5
-  }
+function getCommentListArticle(data) {
   return request.get('/comment/list/artical', data)
 }
 
@@ -83,6 +83,7 @@ module.exports = {
   creatBook,
   createArticle,
   getCommentListArticle,
+  getUserArticles,
   getBookDetail,
   getBookList,
   getBookListCreatedByUser,
