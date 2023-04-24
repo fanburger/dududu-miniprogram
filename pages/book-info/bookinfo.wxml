@@ -6,10 +6,10 @@
         <image src="{{ bookinfo.cover }}" mode="aspectFill" style="width: 364rpx;height: 100%;" />
       </view>
       <view class="rate ml-auto">
-        <van-rate readonly value="{{ bookinfo.rating }}" color="#EDC34E" count="{{ 5 }}"></van-rate>
+        <van-rate readonly value="{{ bookinfo.rating || 0 }}" color="#EDC34E" count="{{ 5 }}"></van-rate>
       </view>
       <view class="write-comment">
-        <van-button round block type="small" color="black"><text style="color: #EDC34E;">写书评</text></van-button>
+        <van-button round block type="small" color="black" bind:click="gotoWriteArticle"><text style="color: #EDC34E;">写书评</text></van-button>
       </view>
     </view>
     <!-- info right -->
@@ -24,5 +24,30 @@
   </view>
   <view class="w-90 mt-3v">
     <van-divider />
+  </view>
+  <view class="artic-group gap-24" style="padding-bottom: 64rpx;">
+    <view class="artic-overview" wx:for="{{articles}}" wx:key="_id">
+      <view class="card-head">
+        <image src="{{item.user_info.avatar}}" mode="heightFix" style="height: 100%;border-radius: 100rpx;" />
+        <text style="margin-left: 24rpx;">{{item.user_info.username}}·发表于{{item.fctime}}</text>
+      </view>
+      <view class="card-content">
+        {{item.detail}}
+      </view>
+      <view class="card-img">
+        <image src="{{item.images[0]}}" mode="widthFix" style="width: 100%;border-radius: 12rpx;" />
+      </view>
+      <view class="card-footer flex gap-24">
+        <view>
+          <text style="color: #8C9198;font-size:small">0赞</text>
+        </view>
+        <view>
+          ·
+        </view>
+        <view>
+          <text style="color: #8C9198;font-size:small">26评论</text>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

@@ -1,12 +1,24 @@
 const api = require('../../utils/api')
+const {
+  avatars
+} = require('../../config')
+const {
+  timeFormat
+} = require('../../utils/util')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    bookid: '',
-    bookinfo: {}
+    book_id: '',
+    bookinfo: {},
+    articles: [],
+    page:1
+  },
+  async loadUsers(users) {
+    const res = await api.usersBatchMe(users)
+    return res
   },
   async loadBookDetail(book_id) {
     api.getBookDetail({
@@ -19,11 +31,48 @@ Page({
       }
     )
   },
+  async loadCommentListArticle(book_id) {
+    const articles = await api.getCommentListArticle({
+      book_id,
+      page: this.data.page++,
+      size: 0
+    })
+    const {
+      list
+    } = articles.data.data
+    const users = list.map(artic => {
+      return artic.user_id
+    })
+    const usersInfo = await this.loadUsers(users)
+    console.log(usersInfo);
+    for (let index = 0; index < usersInfo.data.data.list.length; index++) {
+      const element = usersInfo.data.data.list[index];
+      element.avatar = `${avatars}/${element.avatar}.png`
+      list[index]['user_info'] = element
+    }
+
+    list.forEach(artic => {
+      artic['fctime'] = timeFormat(artic.create_time)
+    })
+    this.setData({
+      articles: list
+    })
+  },
+  gotoWriteArticle() {
+    const {
+      _id
+    } = this.data.bookinfo
+    wx.navigateTo({
+      url: '/pages/create-article/create-article?book_id=' + _id,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.data.book_id = options.book_id
     this.loadBookDetail(options.book_id)
+    this.loadCommentListArticle(options.book_id)
   },
 
   /**
@@ -65,7 +114,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.loadCommentListArticle(this.data.book_id)
   },
 
   /**
