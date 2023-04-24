@@ -8,7 +8,7 @@
   </view>
   <view class="container w-100 mt-3v book-con gap-50">
     <block wx:for="{{mybooks}}" wx:key="_id">
-      <view class="flex-col pand-20 gap-24 book-card bb w-90 items-center">
+      <view class="flex-col pand-20 gap-24 book-card bb w-90 items-center" bindtap="gotoBookDetail" data-book-id="{{item._id}}">
         <view class="book-card-text">
           {{item.sentence}}
         </view>

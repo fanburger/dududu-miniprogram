@@ -30,6 +30,15 @@ Page({
     })
 
   },
+  gotoBookDetail(e) {
+    console.log(e);
+    const {
+      bookId
+    } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: '/pages/book-info/bookinfo?book_id=' + bookId,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
