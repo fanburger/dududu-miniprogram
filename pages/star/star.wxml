@@ -1,2 +1,38 @@
-<!--pages/star/star.wxml-->
-<text>pages/star/star.wxml</text>
+<view class="container">
+  <view class="card-group">
+    <view class="card" wx:for="{{articles.length}}" wx:key="index">
+      <view class="card-head">
+        <view class="avatar">
+          <image src="{{users[index].avatar}}" mode="heightFix" style="height: 100%;border-radius: 100rpx;"/>
+          <text style="font-weight: bold;font-size: large;">{{users[index].username}}</text>
+        </view>
+        <view style="font-size: small; color: #BDC4CE;">
+          {{articles[index].fctime}}
+        </view>
+      </view>
+      <view style="width: 100%;">
+        <van-divider></van-divider>
+      </view>
+      <view class="card-content">
+        <view class="detail">
+          {{articles[index].detail}}
+        </view>
+        <view class="image-group">
+        <block wx:for="{{articles[index].images}}" wx:key="item">
+          <image src="{{item}}" mode="heightFix" style="height: 100%;"/>
+        </block>
+        </view>
+      </view>
+      <view class="card-footer">
+        <view>
+          <van-icon name="like-o" size="20" color="#8C9198" />
+          <text style="color: #8C9198;font-size:small">36</text>
+        </view>
+        <view>
+          <van-icon name="smile-comment-o" size="20" color="#8C9198"/>
+          <text style="color: #8C9198;font-size:small">26</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

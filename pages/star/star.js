@@ -1,18 +1,61 @@
 // pages/star/star.js
+const api = require('../../utils/api')
+
+const {
+  avatars
+} = require('../../config')
+
+const {
+  timeFormat
+} = require('../../utils/util')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    users: [],
+    articles: [],
+    page: 1
   },
-
+  async loadUsers(users) {
+    api.usersBatchMe(users).then(res => {
+      let {
+        list
+      } = res.data.data
+      list.forEach(u => {
+        u.avatar = `${avatars}/${u.avatar}.png`
+      })
+      this.setData({
+        users: this.data.users.concat(list)
+      })
+    })
+  },
+  async loadArticles() {
+    const data = {
+      page: this.data.page++,
+      size: 5
+    }
+    const articles = await api.getCommentListArticle(data)
+    const {
+      list
+    } = articles.data.data
+    list.forEach(artic => {
+      artic['fctime'] = timeFormat(artic.create_time)
+    })
+    const users = list.map(artic => {
+      return artic.user_id
+    })
+    this.setData({
+      articles: this.data.articles.concat(list)
+    })
+    this.loadUsers(users)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.loadArticles()
   },
 
   /**
@@ -53,8 +96,8 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom() {
-
+  onReachBottom(e) {
+    this.loadArticles()
   },
 
   /**

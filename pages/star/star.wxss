@@ -1,1 +1,68 @@
 /* pages/star/star.wxss */
+
+.card-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3vh;
+  padding-bottom: 64rpx;
+  gap: 48rpx;
+  width: 90%;
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+  height: 90vw;
+  box-shadow: 0rpx 2rpx 11rpx 0rpx #E6AE17;
+}
+
+.card-head {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  justify-self: flex-start;
+}
+
+.card-content {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 24rpx;
+}
+
+.detail{
+  flex: 1;
+}
+
+.image-group{
+  height: 200rpx;
+  display: flex;
+  gap: 12rpx;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  box-sizing: border-box;
+  padding-top: 24rpx;
+  padding-bottom: 0;
+  gap: 12rpx;
+}
