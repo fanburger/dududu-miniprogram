@@ -60,8 +60,12 @@ function getMe() {
   return request.get('/users/me', data)
 }
 
+function getUserInfoByID(user_id) {
+  return request.get('/users/me', {user_id})
+}
+
 function getUserArticles(user_id, data) {
-  return request.get('/comment/list/artical/user?user_id='+user_id,data)
+  return request.get('/comment/list/artical/user?user_id=' + user_id, data)
 }
 
 function createArticle(data) {
@@ -71,6 +75,19 @@ function createArticle(data) {
 
 function getCommentListArticle(data) {
   return request.get('/comment/list/artical', data)
+}
+
+function createComment(data) {
+  const userID = getUserIDFromStorage()
+  return request.post(`/comment/create/comment?user_id=${userID}`, data)
+}
+
+function getCommentListComment(data) {
+  return request.get('/comment/list/comment',data)
+}
+
+function getArticleDetail(data) {
+  return request.get('/comment/article', data)
 }
 
 function usersBatchMe(users) {
@@ -83,6 +100,9 @@ module.exports = {
   creatBook,
   createArticle,
   getCommentListArticle,
+  getCommentListComment,
+  createComment,
+  getArticleDetail,
   getUserArticles,
   getBookDetail,
   getBookList,
@@ -92,5 +112,6 @@ module.exports = {
   bookBatchList,
   getUserSummary,
   getMe,
+  getUserInfoByID,  
   usersBatchMe
 }

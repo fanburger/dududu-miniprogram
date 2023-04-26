@@ -101,6 +101,14 @@ Page({
       myArticles: list
     })
   },
+  gotoArticleDetail(e) {
+    let {
+      articleId
+    } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: '/pages/article-detail/article-detail?article_id=' + articleId,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

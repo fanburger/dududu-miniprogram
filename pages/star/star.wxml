@@ -1,6 +1,6 @@
 <view class="container">
   <view class="card-group">
-    <view class="card" wx:for="{{articles.length}}" wx:key="index">
+    <view class="card" wx:for="{{articles.length}}" wx:key="index" data-article-id="{{articles[index]._id}}" bindtap="gotoArticleDetail">
       <view class="card-head">
         <view class="avatar">
           <image src="{{users[index].avatar}}" mode="heightFix" style="height: 100%;border-radius: 100rpx;"/>

@@ -71,7 +71,7 @@
       <van-tab title="我的评论" name="mycomment">
         <view class="container w-100 mt-3v book-con gap-50">
           <block wx:for="{{myArticles}}" wx:key="_id">
-            <view class="flex-col pand-20 gap-24 book-card bb w-90 items-center">
+            <view class="flex-col pand-20 gap-24 book-card bb w-90 items-center" data-article-id="{{item._id}}" bindtap="gotoArticleDetail">
               <view class="book-card-text">
                 {{item.detail}}
               </view>
@@ -83,11 +83,11 @@
                 <view class="flex gap-24">
                   <view>
                     <van-icon name="like-o" size="20" color="#8C9198" />
-                    <text style="color: #8C9198;font-size:small">26</text>
+                    <text style="color: #8C9198;font-size:small">0</text>
                   </view>
                   <view>
                     <van-icon name="smile-comment-o" size="20" color="#8C9198" />
-                    <text style="color: #8C9198;font-size:small">26</text>
+                    <text style="color: #8C9198;font-size:small">0</text>
                   </view>
                 </view>
               </view>

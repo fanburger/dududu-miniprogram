@@ -25,7 +25,7 @@
 }
 
 .avatar-img{
-  width: 180rpx;
+  width: 128rpx;
 }
 
 .username {

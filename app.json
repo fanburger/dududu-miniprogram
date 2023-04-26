@@ -8,7 +8,9 @@
     "pages/add/add",
     "pages/star/star",
     "pages/book-info/bookinfo",
-    "pages/create-article/create-article"
+    "pages/create-article/create-article",
+    "pages/article-detail/article-detail",
+    "pages/user-info/user-info"
   ],
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",

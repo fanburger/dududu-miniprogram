@@ -26,7 +26,7 @@
     <van-divider />
   </view>
   <view class="artic-group gap-24" style="padding-bottom: 64rpx;">
-    <view class="artic-overview" wx:for="{{articles}}" wx:key="_id">
+    <view class="artic-overview" wx:for="{{articles}}" wx:key="_id" data-article-id="{{item._id}}" bindtap="gotoArticleDetail">
       <view class="card-head">
         <image src="{{item.user_info.avatar}}" mode="heightFix" style="height: 100%;border-radius: 100rpx;" />
         <text style="margin-left: 24rpx;">{{item.user_info.username}}·发表于{{item.fctime}}</text>
@@ -45,7 +45,7 @@
           ·
         </view>
         <view>
-          <text style="color: #8C9198;font-size:small">26评论</text>
+          <text style="color: #8C9198;font-size:small">0评论</text>
         </view>
       </view>
     </view>

@@ -11,6 +11,7 @@ const request = function (url, options) {
         'x-token': app.globalData.token
       },
       success: (res) => {
+        console.log(res);
         if (res.data.code == 500) {
           wx.showToast({
             title: res.data.msg,

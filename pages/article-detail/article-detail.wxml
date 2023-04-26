@@ -1,0 +1,69 @@
+<view class="container">
+  <view class="card mt-3v">
+    <view class="card-head">
+      <view class="avatar">
+        <image src="{{author.avatar}}" mode="heightFix" style="height: 100%;border-radius: 100rpx;" />
+        <text style="font-weight: bold;font-size: large;">{{author.username}}</text>
+      </view>
+      <view style="font-size: small; color: #BDC4CE;">
+        {{article.fctime}}
+      </view>
+    </view>
+    <view style="width: 100%;">
+      <van-divider></van-divider>
+    </view>
+    <view class="card-content">
+      <view class="detail">
+        {{article.detail}}
+      </view>
+      <view class="image-group">
+        <block wx:for="{{article.images}}" wx:key="item">
+          <image src="{{item}}" mode="heightFix" style="height: 100%;" />
+        </block>
+      </view>
+    </view>
+    <view class="card-footer">
+      <view>
+        <van-icon name="like-o" size="20" color="#8C9198" />
+        <text style="color: #8C9198;font-size:small">36</text>
+      </view>
+      <view>
+        <van-icon name="smile-comment-o" size="20" color="#8C9198" />
+        <text style="color: #8C9198;font-size:small">26</text>
+      </view>
+    </view>
+  </view>
+  <view style="width: 100%;">
+    <van-divider></van-divider>
+  </view>
+  <view class="comments">
+    <view class="comment" wx:for="{{comments.length}}" wx:key="index">
+      <view class="card-head">
+        <view class="avatar">
+          <image src="{{users[index].avatar}}" mode="heightFix" style="height: 64rpx;" />
+          <text style="font-size: small;">{{users[index].username}}</text>
+        </view>
+        <view style="font-size: small; color: #BDC4CE;">
+          {{comments[index].fctime}}
+        </view>
+      </view>
+      <view class="card-content">
+        <view class="detail">
+          {{comments[index].comment}}
+        </view>
+      </view>
+    </view>
+    <view style="width: 100%;">
+      <van-divider></van-divider>
+    </view>
+  </view>
+  <view class="write-comment">
+    <van-cell-group>
+      <van-field model:value="{{ mycomment }}" center clearable placeholder="说点什么吧..." border="{{ false }}" use-button-slot>
+        <van-button bind:click="createArticleComment" round slot="button" size="small" type="primary" color="black">
+          <text style="color: #E6AE17;">评论</text>
+        </van-button>
+      </van-field>
+    </van-cell-group>
+  </view>
+</view>

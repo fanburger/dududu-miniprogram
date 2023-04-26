@@ -1,0 +1,72 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx;
+  /* justify-content: center; */
+  align-items: center;
+  width: 90%;
+  height: 90vw;
+  box-shadow: 0rpx 2rpx 11rpx 0rpx #e6ae17;
+}
+
+.card-head {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  justify-self: flex-start;
+}
+
+.card-content {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 24rpx;
+}
+
+.detail {
+  flex: 1;
+}
+
+.image-group {
+  height: 200rpx;
+  display: flex;
+  gap: 12rpx;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  box-sizing: border-box;
+  padding-top: 24rpx;
+  padding-bottom: 0;
+  gap: 12rpx;
+}
+
+.comments {
+  width: 90%;
+  gap: 32rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.write-comment{
+  padding-bottom: 64rpx;
+  box-sizing: border-box;
+  position: fixed;
+  background-color: white;
+  bottom: 0rpx;
+  width: 100vw;
+}

@@ -14,7 +14,7 @@ Page({
     book_id: '',
     bookinfo: {},
     articles: [],
-    page:1
+    page: 1
   },
   async loadUsers(users) {
     const res = await api.usersBatchMe(users)
@@ -64,6 +64,14 @@ Page({
     } = this.data.bookinfo
     wx.navigateTo({
       url: '/pages/create-article/create-article?book_id=' + _id,
+    })
+  },
+  gotoArticleDetail(e) {
+    let {
+      articleId
+    } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: '/pages/article-detail/article-detail?article_id=' + articleId,
     })
   },
   /**
